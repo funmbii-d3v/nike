@@ -1,0 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --subColor:  #9c8fb8;
+    --mainColor: #6a329f;
+}
