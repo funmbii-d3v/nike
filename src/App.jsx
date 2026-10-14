@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Envelope from "./Envelope";
 import Body from "./Body";
+import "./App.css"
 
 export default function App() {
   const [opened, setOpened] = useState(false);
