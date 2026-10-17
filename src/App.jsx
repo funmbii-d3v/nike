@@ -10,8 +10,7 @@ export default function App() {
     return <Envelope onFinish={() => setOpened(true)} />;
   }
 
-  // Replace this with your <Main /> page later
-  return <h1 style={{ textAlign: "center", marginTop: "30vh" }}>
-    <Body/>
-    </h1>;
+  return <div style={{ textAlign: "center", marginTop: "60px" }}>
+    <Body />
+    </div>;
 }

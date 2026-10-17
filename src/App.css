@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -6,4 +7,65 @@
 :root{
     --subColor:  #9c8fb8;
     --mainColor: #6a329f;
+    --bgColor: #6a326a;
+    --fontFamily: "Arimo", sans-serif;
+    --font-weight: 500;
+    --font-style: normal;
+}
+html,
+body {
+  margin: 0;
+  background: var(--bgColor);
+}
+/* body */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 70vh;
+  background-color: var(--bgColor);
+}
+.body > :nth-child(odd)  { align-self: flex-start; margin-left: 15%; }
+.body > :nth-child(even) { align-self: flex-end;   margin-right: 15%; }
+
+.rain-heart {
+  position: fixed;
+  top: -80px;
+  pointer-events: none;
+  z-index: 2;
+  animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+    0%   { transform: translateY(-150px); opacity: 0; }
+    8%   { opacity: 1; }
+    85%  { opacity: 0.85; }
+    100% { transform: translateY(110vh);  opacity: 0; }
+  }
+
+/* polaroid */
+.card-body {
+  position: relative;
+  width: min(265px, 70vw);
+  padding: 10px 10px 8px;        
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.cardimg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #ddd;             
+}
+
+.caption {
+  margin: 0;
+  padding: 12px 4px 8px;
+  text-align: center;
+  font-family: var(--fontFamily);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  color: var(--subColor);
 }

@@ -1,0 +1,61 @@
+.note {
+  --paper: #fffdf8;     
+  --line: #e6d9c6;      
+  --ink: #6a329f;        
+  --r: 5px;              
+  --gap: 16px;           
+  --hole-r: 6px;         
+  --hole-gap: 56px;      
+  position: relative;
+  width: min(320px, 86vw);
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.35));
+}
+
+.paper {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0,
+    var(--paper) 27px,
+    var(--line) 27px,
+    var(--line) 28px
+  );
+  background-position: 0 20px;
+  padding: 22px 26px;
+  --edge-left:   radial-gradient(circle at 0 50%,    #0000 var(--r), #000 calc(var(--r) + 0.5px)) 0 0 / 100% var(--gap) repeat-y;
+  --edge-right:  radial-gradient(circle at 100% 50%, #0000 var(--r), #000 calc(var(--r) + 0.5px)) 0 0 / 100% var(--gap) repeat-y;
+  --edge-top:    radial-gradient(circle at 50% 0,    #0000 var(--r), #000 calc(var(--r) + 0.5px)) 0 0 / var(--gap) 100% repeat-x;
+  --edge-bottom: radial-gradient(circle at 50% 100%, #0000 var(--r), #000 calc(var(--r) + 0.5px)) 0 0 / var(--gap) 100% repeat-x;
+  --punch: radial-gradient(circle at 16px 50%, #0000 var(--hole-r), #000 calc(var(--hole-r) + 0.5px)) 0 0 / 100% var(--hole-gap) repeat-y;
+  -webkit-mask: var(--edge-left), var(--edge-right), var(--edge-top), var(--edge-bottom);
+  -webkit-mask-composite: source-in;
+  mask: var(--edge-left), var(--edge-right), var(--edge-top), var(--edge-bottom);
+  mask-composite: intersect;
+}
+
+.paper.with-holes {
+  padding-left: 42px;
+  -webkit-mask: var(--edge-left), var(--edge-right), var(--edge-top), var(--edge-bottom), var(--punch);
+  -webkit-mask-composite: source-in;
+  mask: var(--edge-left), var(--edge-right), var(--edge-top), var(--edge-bottom), var(--punch);
+  mask-composite: intersect;
+}
+
+.paper p {
+  margin: 0;
+  font-family: "Caveat", cursive;   
+  font-size: 1.2rem;
+  line-height: 28px;                
+  color: var(--ink);
+}
+
+.has-tape::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 72px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(201, 162, 39, 0.55);
+  z-index: 1;
+}
